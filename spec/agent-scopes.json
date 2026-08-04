@@ -1,0 +1,87 @@
+{
+  "agents": {
+    "A1": {
+      "name": "Evidence Agent",
+      "description": "On-chain state, live market data, free registries. Authoritative for evidence with primary sources in chain state, DEX/CEX/oracle prices, and free public registries (DefiLlama, block explorers, GLEIF, OpenCorporates). NEVER fetches operator docs or audit reports \u2014 those are A2's scope.\n",
+      "scope_field_families": [
+        "F-CTR",
+        "F-FIN",
+        "F-COL",
+        "F-LIQ",
+        "F-MKT",
+        "F-ORC",
+        "F-SEC",
+        "F-TECH"
+      ],
+      "scope_categories": [
+        "Contract",
+        "Oracle",
+        "Market Data",
+        "Technical"
+      ],
+      "reads_findings_live": true,
+      "stop_condition_text": "Every in-scope field is E (URL + date) or G2/G3 with action. No unresolved triggers in findings-live.md for Agent 1 scope.\n"
+    },
+    "A2": {
+      "name": "Document and Counterparty Agent",
+      "description": "Operator documentation, governance forums, prospectuses, audit reports, regulatory filings, and counterparty/entity verification. FORMAL sources only. NEVER fetches on-chain state \u2014 that is A1's scope. NEVER fetches DEX/CEX prices \u2014 that is A1's scope.\n",
+      "scope_field_families": [
+        "F-OPS",
+        "F-ENT",
+        "F-LEG",
+        "F-CUR",
+        "F-CUS",
+        "F-GOV",
+        "F-RAT",
+        "F-PKG",
+        "F-PRJ",
+        "F-TAX",
+        "F-HED",
+        "F-RIS"
+      ],
+      "scope_categories": [
+        "Operational",
+        "Entity",
+        "Legal",
+        "Rating Pointer",
+        "Risk"
+      ],
+      "reads_findings_live": true,
+      "stop_condition_text": "Every document field E or G2/G3 with action. Every named entity has complete row or G2 with specific registry. No unresolved triggers in findings-live.md for Agent 2 scope.\n"
+    },
+    "A3": {
+      "name": "Adversarial Synthesis",
+      "description": "Synthesizes evidence from A1 and A2 outputs. Identifies contradictions, missing diligence, gap fields. Does not typically fetch new evidence \u2014 the hook will warn if A3 makes external fetches. If A3 needs new evidence, the correct pattern is to append a TRIGGER to findings-live.md and let A1 or A2 handle it.\n",
+      "scope_field_families": [],
+      "scope_categories": [],
+      "reads_findings_live": true,
+      "allow_fetch_with_warning": true,
+      "stop_condition_text": "Every contradiction surfaced. Every gap a TRIGGER for A1 or A2. Synthesis report written to packs/{slug}/agent-outputs/synthesis.md.\n"
+    },
+    "A6": {
+      "name": "Verification Agent",
+      "description": "Verifies that every claim in the pack follows from its cited source. Reads evidence from A1, A2, A3 outputs. Does not typically fetch new evidence; if a verification check requires pulling the cited source again, the hook will warn but allow it since re-reading the cited source is a legitimate verification pattern.\n",
+      "scope_field_families": [],
+      "scope_categories": [],
+      "reads_findings_live": true,
+      "allow_fetch_with_warning": true,
+      "allow_recheck_cited_sources": true,
+      "stop_condition_text": "Every claim either confirmed (state preserved) or downgraded (state lowered to G2/G3 with reason). Verification report written to packs/{slug}/agent-outputs/ verification-report.json.\n"
+    },
+    "source-discovery": {
+      "name": "Source Discovery",
+      "description": "Sweeps venue landscape, proposes registry entries to _pending.md. Proposes only — never registers. Curation work, not field-evidence fetching.",
+      "scope_field_families": [],
+      "scope_categories": [],
+      "reads_findings_live": false,
+      "allow_fetch_with_warning": true,
+      "stop_condition_text": "All candidate sources processed and proposed to _pending.md; halt for operator ratification."
+    }
+  },
+  "hook": {
+    "default_mode": "warn",
+    "silent_outside_pack": true,
+    "missing_purpose_mode": "warn",
+    "unknown_field_mode": "block"
+  }
+}

@@ -1,0 +1,11 @@
+# VT-8 — PILLAR WEIGHT GUIDANCE
+
+VT-8 — PILLAR WEIGHT GUIDANCE | VT-8 INVERTED WEIGHT STRUCTURE — primary risk is offchain. Apply these overrides in the assessment: 
+
+HIGHEST WEIGHT (assess first, gate the pack): P6 Credit & Yield Sustainability — issuer corporate risk, dividend discretion, yield concentration, return of capital classification. P2 Custody — TradFi prime brokerage criteria (P2.11 mandatory), SIPC, rehypothecation prohibition, execution/custody separation. P10 Regulatory — underlying instrument securities law, tax character of distributions (P10.6 mandatory), withholding tax for non-US holders. 
+
+MEDIUM WEIGHT: P9 Liquidity — secondary market for listed instrument (daily Nasdaq/NYSE liquidity replaces DeFi DEX depth), redemption chain timeline across all counterparties (staking cooldown + M0 off-ramp + a listed preferred instrument execution + the prime broker settlement). P1 Legal — legal wrapper for onchain token, beneficial ownership, KYC/AML for minting (mandatory for USDat), permissionless for a preferred-equity-backed token. P8 Team & Ops — TradFi counterparty operational risk (the execution broker execution, the prime broker custody, M0 treasury infrastructure). 
+
+LOWER WEIGHT (secondary layer): P7 Smart Contract — ERC-4626 wrapper audit, oracle configuration, access control, blacklist/pause function. Score against standard criteria but weight lower than for pure DeFi vaults. P3 Oracle — Chainlink oracle for NAV feed, update frequency, staleness threshold. Note: 24-hour update cadence acceptable for daily-valued listed instrument, not for volatile DeFi collateral. P4 Collateral — N/A for most VT-8 structures. Score N/A where underlying is a listed security, not DeFi collateral. P5 Hedge — N/A unless vault explicitly runs a hedge on the listed instrument. 
+
+PACK DECAY: VT-8 packs decay faster than VT-3. Standard decay: 30 days. Immediate rerun triggers: issuer quarterly earnings, dividend rate change, prime broker regulatory action, oracle configuration change, significant TVL change.

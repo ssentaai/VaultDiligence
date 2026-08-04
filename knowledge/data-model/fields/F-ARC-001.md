@@ -1,0 +1,20 @@
+# F-ARC-001
+
+**Field ID**: F-ARC-001
+**Category**: Archetype
+**Sub-Category**: Versioned Snapshot — Composition Shift
+**Field Name**: Strategy-Composition Shift Rules & Current-Mix Disclosure
+**What to Collect / Question to Answer**: For any multi-strategy vault — one whose backing is a weighted set across the Strategy or Exposure dimensions (per knowledge/framework/archetype/dimensions.md) — the backing mix can rotate with market conditions (e.g. a basis/funding-trade vault shifting into liquid stables / tokenized T-bills when funding is negative). What rules or discretion govern that shift — is it rule-based or manager-discretionary, what triggers it (e.g. funding-regime thresholds), what is the CURRENT backing mix as of a stated date, and where is the mix published and how frequently? State each with source and date. This records the shift mechanism and current-mix transparency — the versioned-archetype concern that a vault's own archetype coordinates are a moving target — distinct from F-STD-007's party-standing change-check and from the archetype as-of-date snapshot itself.
+**Data Type**: Structured (shift rule-based vs discretionary; documented triggers; current mix by component with the share per component + as-of-date; publication venue + frequency)
+**Vault Types**: Multi-strategy vaults (a weighted-set Strategy or Exposure per archetype/dimensions.md); N/A where the backing mix is fixed and cannot shift (state why)
+**Collection Tier**: T2
+**Pillar(s)**: Archetype-level (propose; relates to P18 change-since-onboarding — operator confirms)
+**Primary Source**: Operator strategy mandate / methodology documenting the dynamic-allocation rules and triggers; the transparency dashboard publishing the current backing mix with an as-of-date
+**Fallback Source**: Governance-forum allocation updates; independent reconstruction of the mix from on-chain / attested holdings
+**Evidence Pathway**: Third-party-evidenced: read the documented dynamic-allocation rules and triggers, and confirm the current backing mix and its as-of-date from the operator's published transparency source (or reconstruct it from attested holdings).
+**Institutional Standard**: The composition-shift is documented as rule-based or discretionary with its triggers stated, and the current backing mix is published with an as-of-date at a stated frequency — so the allocator can see both how the mix moves under stress and what it is today, and can treat a material shift as a dated re-assessment trigger. A fact to record, never a computed value.
+**Status**: Gap with action
+**If Not Found — Gap Action**: Shift rules + triggers documented and current mix published with as-of-date: E. Mix published but the shift rules/triggers undocumented (discretion undisclosed): E(P). Neither the rules nor a dated current mix disclosed: G2. A material composition change since onboarding known but its detail restricted: G2 (and record the change via F-STD-007). N/A if the vault's backing mix is fixed and cannot shift.
+**Source / Precedent**: a synthetic-dollar issuer dynamic allocation — "In periods of low or negative funding, more of the backing assets of a synthetic-dollar vault will be shifted into liquid stables earning approximately the U.S Treasury rate" (the issuer documentation; the issuer documentation, retrieved 2026-07-09). an internal analysis §2/§6: a synthetic-dollar vault's backing is a weighted set that "shifts with funding-rate conditions", and the archetype is a versioned dated snapshot. Routed to archetype-level at ratification (2026-07-09) because it applies to ANY multi-strategy vault, not only basis-trade; the source proposal was basis-trade-06 in an internal analysis.
+**Cross-references**: F-STD-007 (party-standing change-since-onboarding, a recency check on an adjacent axis); knowledge/framework/archetype/dimensions.md (the archetype as-of-date snapshot and weighted-set exposure/strategy). Neither records the shift RULES or the current-mix disclosure this field captures.
+**Criterion ID(s)**: propose archetype-level (operator assigns); relates to P18 criterion 18.7 (change-since-onboarding) and the archetype as-of-date
