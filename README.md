@@ -1,4 +1,7 @@
-# VaultDiligence by Sonny Sood, https://sonny.templewood.io , https://templewood.io/ 
+# VaultDiligence by Sonny Sood
+
+https://enta.ai/
+https://templewood.io/ 
 
 **An open due-diligence framework for onchain yield vaults.**
 
